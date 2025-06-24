@@ -58,7 +58,7 @@ export const InstagramGallery: React.FC<InstagramGalleryProps> = ({
   return (
     <div>
       {/* Modern View Toggle */}
-      <div className={`mx-4 mb-6 p-2 rounded-3xl transition-all duration-500 relative overflow-hidden ${
+      <div className={`mx-4 mb-6 p-2 rounded-3xl transition-all duration-500 overflow-hidden ${
         isDarkMode 
           ? 'bg-gray-800/40 border border-gray-700/30 backdrop-blur-xl shadow-2xl shadow-purple-500/10' 
           : 'bg-white/60 border border-gray-200/40 backdrop-blur-xl shadow-2xl shadow-pink-500/10'
@@ -72,8 +72,8 @@ export const InstagramGallery: React.FC<InstagramGalleryProps> = ({
             isDarkMode ? 'bg-purple-500' : 'bg-purple-300'
           }`} style={{ transform: 'translate(-30%, 30%)' }}></div>
         </div>
-        <div className="relative z-10 flex items-center justify-center">
-          <div className={`p-1 rounded-2xl transition-all duration-300 ${
+        <div className="flex items-center justify-center">
+          <div className={`p-1 rounded-2xl transition-all duration-300 flex flex-row ${
             isDarkMode ? 'bg-gray-700/30' : 'bg-white/50'
           }`}>
             <button

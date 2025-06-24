@@ -29,6 +29,7 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
   const [showVideoRecorder, setShowVideoRecorder] = useState(false);
   const [noteText, setNoteText] = useState('');
 
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFiles(e.target.files);
     if (e.target.files && e.target.files.length > 0) {
@@ -127,8 +128,27 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
       
       {/* Upload Options Modal - Instagram 2.0 Style */}
       {showUploadOptions && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-          <div className={`rounded-3xl p-8 max-w-md w-full transition-all duration-500 relative overflow-hidden ${
+        <div 
+          className="modal-overlay"
+          style={{ 
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            backdropFilter: 'blur(8px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '1rem',
+            zIndex: 99999999
+          }}
+          onClick={() => setShowUploadOptions(false)}
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className={`rounded-3xl p-8 max-w-md w-full transition-all duration-500 relative overflow-hidden ${
             isDarkMode 
               ? 'bg-gray-800/90 border border-gray-700/50 backdrop-blur-xl shadow-2xl shadow-purple-500/20' 
               : 'bg-white/95 border border-gray-200/50 backdrop-blur-xl shadow-2xl shadow-pink-500/20'
@@ -292,8 +312,30 @@ export const UploadSection: React.FC<UploadSectionProps> = ({
 
       {/* Note Input Modal - Instagram 2.0 Style */}
       {showNoteInput && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-          <div className={`rounded-3xl p-8 max-w-lg w-full transition-all duration-500 relative overflow-hidden ${
+        <div 
+          className="modal-overlay"
+          style={{ 
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            backdropFilter: 'blur(8px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '1rem',
+            zIndex: 99999999
+          }}
+          onClick={() => {
+            setShowNoteInput(false);
+            setNoteText('');
+          }}
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className={`rounded-3xl p-8 max-w-lg w-full transition-all duration-500 relative overflow-hidden ${
             isDarkMode 
               ? 'bg-gray-800/90 border border-gray-700/50 backdrop-blur-xl shadow-2xl shadow-purple-500/20' 
               : 'bg-white/95 border border-gray-200/50 backdrop-blur-xl shadow-2xl shadow-pink-500/20'

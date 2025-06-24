@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.modal-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 999999999 !important;
+  isolation: isolate;
+}
+
 /* Modern scrollbar styling for Instagram 2.0 design */
 .scrollbar-hide {
   -ms-overflow-style: none;
