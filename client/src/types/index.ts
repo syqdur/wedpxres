@@ -7,6 +7,7 @@ export interface MediaItem {
   deviceId: string;
   type: 'image' | 'video' | 'note';
   noteText?: string;
+  note?: string; // Legacy support
   isUnavailable?: boolean;
 }
 

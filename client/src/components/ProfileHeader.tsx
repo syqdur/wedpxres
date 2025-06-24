@@ -206,28 +206,33 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({ isDarkMode, isAdmi
                 </span>
               </div>
               
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="flex justify-center gap-3">
                 {[
-                  { value: countdown.days, label: 'Tage', gradient: 'from-pink-500 to-rose-500' },
-                  { value: countdown.hours, label: 'Stunden', gradient: 'from-purple-500 to-violet-500' },
-                  { value: countdown.minutes, label: 'Minuten', gradient: 'from-blue-500 to-indigo-500' },
-                  { value: countdown.seconds, label: 'Sekunden', gradient: 'from-teal-500 to-cyan-500' }
+                  { value: countdown.days, label: 'Tage' },
+                  { value: countdown.hours, label: 'Stunden' },
+                  { value: countdown.minutes, label: 'Minuten' },
+                  { value: countdown.seconds, label: 'Sekunden' }
                 ].map((item, index) => (
                   <div
                     key={index}
-                    className={`relative p-4 rounded-xl transition-all duration-500 hover:scale-105 transform ${
+                    className={`relative p-3 rounded-lg transition-all duration-500 transform ${
                       isDarkMode 
-                        ? 'bg-gray-800/60 backdrop-blur-sm border border-gray-700/50 shadow-lg' 
-                        : 'bg-white/80 backdrop-blur-sm border border-white/60 shadow-lg'
+                        ? 'bg-pink-900/30 backdrop-blur-sm border border-pink-500/30' 
+                        : 'bg-pink-50/80 backdrop-blur-sm border border-pink-200/50'
                     }`}
+                    style={{
+                      animation: 'flipclock 1s ease-in-out infinite alternate',
+                      animationDelay: `${index * 0.1}s`
+                    }}
                   >
-                    <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${item.gradient} opacity-5`}></div>
-                    <div className="relative z-10 text-center">
-                      <div className={`text-3xl md:text-4xl font-black mb-1 bg-gradient-to-br ${item.gradient} bg-clip-text text-transparent`}>
+                    <div className="text-center">
+                      <div className={`text-lg font-bold mb-1 transition-colors duration-300 ${
+                        isDarkMode ? 'text-pink-300' : 'text-pink-700'
+                      }`}>
                         {item.value.toString().padStart(2, '0')}
                       </div>
-                      <div className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 ${
-                        isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                      <div className={`text-xs uppercase tracking-wide font-medium transition-colors duration-300 ${
+                        isDarkMode ? 'text-pink-400' : 'text-pink-600'
                       }`}>
                         {item.label}
                       </div>
